@@ -22,7 +22,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         myCollegeObject.append(CollegeClass(Name: "Rose Hulman", Location: "Terre Haute", StudentAmount: "1980", Image: UIImage(named: "rosehulman")!))
         myCollegeObject.append(CollegeClass(Name: "Purdue", Location: "West Lafayette", StudentAmount: "38770", Image: UIImage(named: "purdue")!))
     }
-    //add to list of colleges
+    //add to the list of colleges
     @IBAction func addButtonTapped(_ sender: Any)
     {
         let alert = UIAlertController(title: "add college", message: nil, preferredStyle: .alert)
