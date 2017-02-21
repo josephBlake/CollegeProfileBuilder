@@ -34,7 +34,7 @@ class InfoViewController: UIViewController
     {
         collegeDetail.name = nameTextField.text!
         collegeDetail.location = locationTextField.text!
-        collegeDetail.studentAmount = locationTextField.text!
+        collegeDetail.studentAmount = studentAmountTextField.text!
     }
     
 }

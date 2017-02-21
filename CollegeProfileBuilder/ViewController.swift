@@ -83,9 +83,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     {
         let detailView = segue.destination as! InfoViewController
         let selectedRow = myTableView.indexPathForSelectedRow?.row
-        
         detailView.collegeDetail = myCollegeObject[selectedRow!]
     }
     
+    override func viewDidAppear(_ animated: Bool)
+    {
+        myTableView.reloadData()
+    }
 }
 
