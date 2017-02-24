@@ -18,9 +18,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        myCollegeObject.append(CollegeClass(Name: "MSOE", Location: "Milwaukee", StudentAmount: "2810", Image: UIImage(named: "msoe")!))
-        myCollegeObject.append(CollegeClass(Name: "Rose Hulman", Location: "Terre Haute", StudentAmount: "1980", Image: UIImage(named: "rosehulman")!))
-        myCollegeObject.append(CollegeClass(Name: "Purdue", Location: "West Lafayette", StudentAmount: "38770", Image: UIImage(named: "purdue")!))
+        myCollegeObject.append(CollegeClass(Name: "MSOE", Location: "Milwaukee", StudentAmount: "2810", WebAddress: "https://www.msoe.edu/", Image: UIImage(named: "msoe")!))
+        myCollegeObject.append(CollegeClass(Name: "Rose Hulman", Location: "Terre Haute", StudentAmount: "1980", WebAddress: "https://www.rose-hulman.edu/", Image: UIImage(named: "rosehulman")!))
+        myCollegeObject.append(CollegeClass(Name: "Purdue", Location: "West Lafayette", StudentAmount: "38770", WebAddress: "http://www.purdue.edu/", Image: UIImage(named: "purdue")!))
     }
     //add to the list of colleges
     @IBAction func addButtonTapped(_ sender: Any)
@@ -33,6 +33,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         alert.addTextField{ (locationTextField) in locationTextField.placeholder = "add Location"
         }
         
+        alert.addTextField{ (webAddressTextField) in webAddressTextField.placeholder = "add Website URL"
+        }
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         alert.addAction(cancelAction)
@@ -42,9 +45,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             (action) in
             let collegeTextField = alert.textFields?[0]
             let locationTextField = alert.textFields?[1]
-            
-            
-            self.myCollegeObject.append(CollegeClass(Name: (collegeTextField?.text)!, Location: (locationTextField?.text)!))
+            let webAddressTextField = alert.textFields?[2]
+            self.myCollegeObject.append(CollegeClass(Name: (collegeTextField?.text)!, Location: (locationTextField?.text)!, WebAddress: (webAddressTextField?.text)!))
             
             self.myTableView.reloadData()
             
